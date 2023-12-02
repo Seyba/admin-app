@@ -8,9 +8,10 @@ import {
 } from '@ant-design/icons';
 import { Layout, Menu, Button, theme } from 'antd';
 import { AiOutlineDashboard } from 'react-icons/ai'
-import { FaRegUser } from "react-icons/fa6";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { useNavigate } from 'react-router-dom'
+import { FaClipboardList, FaRegUser ,FaBloggerB} from "react-icons/fa";
+
 
 
 
@@ -59,9 +60,30 @@ export const MainLayout= () => {
                                 label:'Product List'
                             },
                             {
-                                key: 'Product-details',
-                                label:'Product Details'
+                                key: 'Category',
+                                label:'Brand'
+                            },
+                            {
+                                key:'list-category',
+                                label:'Brand List'
+                            },
+                            {
+                                key:'Category',
+                                label:'Category'
+                            },
+                            {
+                                key:'list-category',
+                                label:'Category List'
+                            },
+                            {
+                                key:'Color',
+                                label:'Color'
+                            },
+                            {
+                                key:'list-color',
+                                label:'Color List'
                             }
+                            
                         ]
                     },
                     {
@@ -71,18 +93,36 @@ export const MainLayout= () => {
                     },
                     {
                         key: 'Orders',
-                        icon: <MdOutlineShoppingCart className="fs-4"/>,
+                        icon: <FaClipboardList className="fs-4"/>,
                         label: 'Orders',
                     },
                     {
-                        key: '',
-                        icon: <AiOutlineDashboard />,
-                        label: 'Dashboard',
+                        key: 'Blog',
+                        icon: <FaBloggerB className="fs-4"/>,
+                        label: 'Blogs',
+                        children:[
+                            {
+                                key: 'Blog',
+                                label: 'Add Blog'
+                            },
+                            {
+                                key: 'list-blog',
+                                label: 'Blog List'
+                            },
+                            {
+                                key: 'blog-category',
+                                label: 'Add Blog Category'
+                            },
+                            {
+                                Key: 'blog-category-list',
+                                label: 'Blog Category List'
+                            }
+                        ]
                     },
                     {
-                        key: '',
-                        icon: <AiOutlineDashboard />,
-                        label: 'Dashboard',
+                        key: 'Enquiries',
+                        icon: <AiOutlineDashboard className="fs-4"/>,
+                        label: 'Enquiries',
                     }
                 ]}
             />

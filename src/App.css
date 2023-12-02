@@ -1,3 +1,21 @@
 body {
   font-family: Roboto, sans-serif;
 }
+.ant-layout {
+  min-height: 100vh;
+}
+.ant-layout-sider {
+  flex: 0 0 280px !important;
+  max-width: 280px !important;
+  min-width: 280px !important;
+  width: 280px !important;
+}
+.ant-layout-sider-collapsed {
+  flex: 0 0 0 !important;
+  max-width: 0px !important;
+  min-width: 0px !important;
+  width: 0px !important;
+}
+main {
+  overflow-y: scroll;
+}
