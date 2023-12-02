@@ -7,10 +7,18 @@ import {
   VideoCameraOutlined,
 } from '@ant-design/icons';
 import { Layout, Menu, Button, theme } from 'antd';
+import { AiOutlineDashboard } from 'react-icons/ai'
+import { FaRegUser } from "react-icons/fa6";
+import { MdOutlineShoppingCart } from "react-icons/md";
+import { useNavigate } from 'react-router-dom'
+
+
+
 const { Header, Sider, Content } = Layout;
 
 
 export const MainLayout= () => {
+    const navigate = useNavigate()
     const [collapsed, setCollapsed] = useState(false);
     const {
       token: { colorBgContainer },
@@ -23,23 +31,59 @@ export const MainLayout= () => {
             <Menu
                 theme="dark"
                 mode="inline"
-                defaultSelectedKeys={['1']}
+                defaultSelectedKeys={['']}
+                onClick={({ key }) => {
+                    if(key === 'signout'){
+
+                    } else {
+                        navigate(key)
+                    }
+                }}  
                 items={[
-                {
-                    key: '1',
-                    icon: <UserOutlined />,
-                    label: 'nav 1',
-                },
-                {
-                    key: '2',
-                    icon: <VideoCameraOutlined />,
-                    label: 'nav 2',
-                },
-                {
-                    key: '3',
-                    icon: <UploadOutlined />,
-                    label: 'nav 3',
-                },
+                    {
+                        key: 'Dashboard',
+                        icon: <AiOutlineDashboard className="fs-4"/>,
+                        label: 'Dashboard',
+                    },
+                    {
+                        key: 'Catalog',
+                        icon: <MdOutlineShoppingCart className="fs-4 "/>,
+                        label: 'Catalog',
+                        children: [
+                            {
+                                key: 'Product',
+                                label:'Add Product'
+                            },
+                            {
+                                key: 'Product-list',
+                                label:'Product List'
+                            },
+                            {
+                                key: 'Product-details',
+                                label:'Product Details'
+                            }
+                        ]
+                    },
+                    {
+                        key: 'Customers',
+                        icon: <FaRegUser className="fs-4"/>,
+                        label: 'Customers',
+                    },
+                    {
+                        key: 'Orders',
+                        icon: <MdOutlineShoppingCart className="fs-4"/>,
+                        label: 'Orders',
+                    },
+                    {
+                        key: '',
+                        icon: <AiOutlineDashboard />,
+                        label: 'Dashboard',
+                    },
+                    {
+                        key: '',
+                        icon: <AiOutlineDashboard />,
+                        label: 'Dashboard',
+                    }
                 ]}
             />
             </Sider>
