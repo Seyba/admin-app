@@ -149,10 +149,12 @@ export const MainLayout= () => {
                     />
                     <div className="d-flex gap-3 align-items-center ">
                         <div></div>
-                        <div>
-                            <div><img src="" alt=""/></div>
+                        <div className="d-flex gap-3 align-items-center">
                             <div>
-                                <h5>John Doe</h5>
+                                <img src="/images/account-img.jpg" alt="account"/>
+                            </div>
+                            <div>
+                                <h5 className="text-dark">John Doe</h5>
                                 <p>JohnDoe@gmail.com</p>
                             </div>
                         </div>
