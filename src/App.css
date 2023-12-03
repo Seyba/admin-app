@@ -1,6 +1,9 @@
 body {
   font-family: Roboto, sans-serif;
 }
+:root {
+  --color-6c757d : #6c757d;
+}
 .logo{
   background-color: #ffd333;
   margin: 0;
@@ -21,16 +24,20 @@ body {
   min-width: 0px !important;
   width: 0px !important;
 }
-main {
-  overflow-y: scroll;
-}
+
 .ant-menu-title-content {
   font-size: 16px;
 }
 .ant-layout-header h5 {
-  line-height: 30px;
-  margin: 0;
+  line-height: 20px;
+  font-size: 14px;
 }
 .ant-layout-header p{
-  line-height: 10px;
+  line-height: 20px;
+  font-size: 13px;
+  color: var(--color-6c757d);
+}
+.ant-layout-header div .badge {
+  top: 16px;
+  right: -5px;
 }

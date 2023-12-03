@@ -8,9 +8,10 @@ import {
 } from '@ant-design/icons';
 import { Layout, Menu, Button, theme } from 'antd';
 import { AiOutlineDashboard, AiOutlinePicLeft } from 'react-icons/ai'
-import { MdOutlineShoppingCart } from "react-icons/md";
+import { IoIosNotifications } from "react-icons/io"
+import { MdOutlineShoppingCart } from "react-icons/md"
 import { useNavigate, Link, Outlet } from 'react-router-dom'
-import { FaClipboardList, FaRegUser ,FaBloggerB} from "react-icons/fa";
+import { FaClipboardList, FaRegUser ,FaBloggerB} from "react-icons/fa"
 
 
 
@@ -147,15 +148,23 @@ export const MainLayout= () => {
                             height: 64,
                         }}
                     />
-                    <div className="d-flex gap-3 align-items-center ">
-                        <div></div>
-                        <div className="d-flex gap-3 align-items-center">
+                    <div className="d-flex gap-4 align-items-center ">
+                        <div className="position-relative">
+                            <IoIosNotifications className="fs-5"/>
+                            <span className="badge bg-warning rounded-circle p-1 position-absolute">3</span>
+                        </div>
+                        <div className="bg-tertiary d-flex gap-3 align-items-center">
                             <div>
-                                <img src="/images/account-img.jpg" alt="account"/>
+                                <img 
+                                    src="/images/account-img.jpg" 
+                                    alt="account"
+                                    width="32"
+                                    height="32"
+                                />
                             </div>
                             <div>
-                                <h5 className="text-dark">John Doe</h5>
-                                <p>JohnDoe@gmail.com</p>
+                                <h5 className="mb-0">John Doe</h5>
+                                <p className="mb-0">JohnDoe@gmail.com</p>
                             </div>
                         </div>
                     </div>
@@ -168,7 +177,7 @@ export const MainLayout= () => {
                     background: colorBgContainer,
                     }}
                 >
-                    Content
+                    <Outlet/>
                 </Content>
             </Layout>
         </Layout>

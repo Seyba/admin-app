@@ -2,6 +2,14 @@ import React from 'react'
 
 export const Dashboard = () => {
   return (
-    <div>Dashboard</div>
+    <div>
+        <h3 className="mb-4">Dashboard</h3>
+        <div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
   )
 }
