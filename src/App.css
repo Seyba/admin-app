@@ -6,6 +6,7 @@ body {
   --color-828f99: #828f99;
   --color-212529: #212529;
   --color-f4f6f7: #f4f6f7;
+  --color-47AD24: #47AD24;
 }
 .logo{
   background-color: #ffd333;
@@ -61,5 +62,16 @@ main {
 .widget-link:hover {
   background-color: var(--color-f4f6f7);
   cursor: pointer;
+}
+.indicator-value{
+  font-size: 32px;
+  line-height: 1;
+  font-weight: 500;
+  color: var(--color-212529);
+}
+.indicator-delta-value {
+  color: var(--color-47AD24);
+  font-size: 14px;
+  font-weight: 600;
 }
 /*============================ Dashboard Section Ends =================================*/

@@ -22,9 +22,9 @@ export const Dashboard = () => {
                             <HiOutlineDotsVertical className="widget-link"/>
                         </div>
                         <div className="d-flex justify-content-between align-items-center">
-                            <h4>$ 3799.00</h4>
+                            <h4 className="indicator-value">$ 3799.00</h4>
                             <div className="">
-                                <p className="mb-0 text-end"> <CgArrowTopRight className="mb-1 text-primary"/> 34.7%</p>
+                                <p className="mb-0 text-end indicator-delta-value"> <CgArrowTopRight className="mb-1 indicator-delta-value"/> 34.7%</p>
                                 <p>Compare to April 2021</p>
                             </div>
                         </div>
