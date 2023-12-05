@@ -3,7 +3,7 @@ import { HiOutlineDotsVertical } from "react-icons/hi";
 import { CgArrowTopRight, CgArrowBottomRight } from "react-icons/cg";
 import { Link } from 'react-router-dom'
 import { Column, Pie } from '@ant-design/plots'
-import { Table } from 'antd'
+import { Table, Timeline } from 'antd'
 import ReactStars from "react-rating-stars-component"
 
 
@@ -261,8 +261,85 @@ export const Dashboard = () => {
             title: 'Ripper Tool IRadix DPS3000SY 2700 Watts',
             author: 'Ryan Ford',
             stars: 5
+        },
+        
+        {
+            image: '/images/water-tap.jpg',
+            title: 'Water Tap',
+            author: 'Jessica Moore', 
+            stars: '2'
+        },
+        {
+            image: '/images/brandix.jpg',
+            title: 'Electric Planer Brandix KL370090G 300 Watts',
+            author: 'Adam Taylor',
+            stars: '4'
+        },
+        {
+            image: '/images/wiperBlade.jpg',
+            title: 'Wiper Blades Brandix WL2',
+            author: 'Ryan Ford',
+            stars: '3'
         }
 
+    ]
+    const timeLineData = [
+        {
+            color: '#ffd333', 
+            children: (
+                <>
+                    <p>Yesterday</p>
+                    <p>
+                        Phasellus id mattis nulla. 
+                        Mauris velit nisi, imperdiet vitae sodales in, 
+                        maximus ut lectus. Vivamus commodo scelerisque lacus, 
+                        at porttitor dui iaculis id. 
+                        Curabitur imperdiet ultrices fermentum.
+                    </p>
+                </>
+            ), 
+
+        },
+        {
+            color: '#ffd333', 
+            children: (
+                <>
+                    <p>5 days ago</p>
+                    <p>
+                        Phasellus id mattis nulla. 
+                        Curabitur imperdiet ultrices fermentum.
+                    </p>
+                </>
+            ), 
+
+        },
+        {
+            color: '#ffd333', 
+            children: (
+                <>
+                    <p>March 27</p>
+                    <p>
+                        Phasellus id mattis nulla. 
+                        Mauris velit nisi, imperdiet vitae sodales in, 
+                        Curabitur imperdiet ultrices fermentum.
+                    </p>
+                </>
+            ), 
+
+        },
+        {
+            color: '#ffd333', 
+            children: (
+                <>
+                    <p>November 30</p>
+                    <p>
+                        Phasellus id mattis nulla. 
+                        Curabitur imperdiet ultrices fermentum.
+                    </p>
+                </>
+            ), 
+
+        }
     ]
   return (
     <div>
@@ -404,7 +481,13 @@ export const Dashboard = () => {
                             <h3 className="widget_heading">Recent activities</h3>
                             <HiOutlineDotsVertical />
                         </div>
+                        <div>
+                            <Timeline
+                                items = {timeLineData}
+                            />
+                        </div>
                     </div>
+                    
                 </div>
                 <div className="col-md-6 mt-4">
                     <div className="card p-3">
