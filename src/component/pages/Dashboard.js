@@ -2,43 +2,60 @@ import React from 'react'
 import { HiOutlineDotsVertical } from "react-icons/hi";
 import { CgArrowTopRight, CgArrowBottomRight } from "react-icons/cg";
 import { Link } from 'react-router-dom'
-import { Column } from '@ant-design/plots';
+import { Column } from '@ant-design/plots'
+import { Table } from 'antd'
 
 export const Dashboard = () => {
 
     const data = [
         {
           type: 'Jan',
-          sales: 38,
+          sales: 0,
         },
         {
           type: 'Feb',
-          sales: 52,
+          sales: 100,
         },
         {
           type: 'Mar',
-          sales: 61,
+          sales: 510,
         },
         {
           type: 'Apr',
-          sales: 145,
+          sales: 230,
         },
         {
           type: 'May',
-          sales: 48,
+          sales: 420,
         },
         {
           type: 'Jun',
-          sales: 38,
+          sales: 180,
         },
         {
           type: 'Jul',
-          sales: 38,
+          sales: 240,
         },
         {
           type: 'Aug',
-          sales: 38,
+          sales: 230,
         },
+        {
+            type: 'Sep',
+            sales: 680,
+          },
+          {
+            type: 'Oct',
+            sales: 450,
+          },
+          {
+            type: 'Nov',
+            sales: 650,
+          },
+          {
+            type: 'Dec',
+            sales: 1500,
+          },
     ];
     const config = {
     data,
@@ -69,6 +86,59 @@ export const Dashboard = () => {
         },
     },
     };
+
+    const dataSource = [
+        {
+          key: '1',
+          name: 'Mike',
+          age: 32,
+          address: '10 Downing Street',
+        },
+        {
+          key: '2',
+          name: 'John',
+          age: 42,
+          address: '10 Downing Street',
+        },
+    ];
+
+    const columns = [
+        {
+          title: 'SNo',
+          dataIndex: 'key'
+        },
+        {
+          title: 'Name',
+          dataIndex: 'name'
+        },
+        {
+          title: 'Product',
+          dataIndex: 'product'
+        },
+        {
+            title: 'Status',
+            dataIndex: 'status'
+        },
+        {
+            title: 'Date',
+            dataIndex: 'address',
+            key: 'address',
+        },
+        {
+            title: 'Total',
+            dataIndex: 'address',
+            key: 'address',
+        },
+    ];
+    const orderData = []
+    for(let i = 0; i < 46; i++) {
+        orderData.push({
+            key: i,
+            name: `Edward King ${i}`,
+            product: 32,
+            status: `London, Park Lane no. ${i}`
+        })
+    }
   return (
     <div>
         <h3 className="mb-4">Dashboard</h3>
@@ -144,11 +214,36 @@ export const Dashboard = () => {
                     </div>
                 </div>
                 <div className="col-md-9">
-                    <div className="card">
-                        <h3 className="mb-4">Income Statics</h3>
+                    <div className="card p-3">
+                        <div className="mb-4 d-flex justify-content-between align-items-center">
+                            <h3 className="mb-4">Income Statics</h3>
+                            <HiOutlineDotsVertical />
+                        </div>
                         <div>
                             <Column {...config} />
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-md-9 mt-4">
+                    <div className="card p-3">
+                        <div className="d-flex justify-content-between align-items-center">
+                            <h3>Recent Orders</h3>
+                            <HiOutlineDotsVertical />
+                        </div>
+                        <div>
+                            <Table dataSource={orderData} columns={columns} />;
+                        </div>
+                    </div>
+                </div>
+                <div className="col-md-3 mt-4">
+                    <div className="card p-3">
+                        <div className="d-flex justify-content-between align-items-center">
+                            <h3>Sales by traffic source</h3>
+                            <HiOutlineDotsVertical />
+                        </div>
+                        
                     </div>
                 </div>
             </div>
