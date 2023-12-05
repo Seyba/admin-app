@@ -3,7 +3,7 @@ import { HiOutlineDotsVertical } from "react-icons/hi";
 import { CgArrowTopRight, CgArrowBottomRight } from "react-icons/cg";
 import { Link } from 'react-router-dom'
 import { Column, Pie } from '@ant-design/plots'
-import { Table, Card, List  } from 'antd'
+import { Table } from 'antd'
 import ReactStars from "react-rating-stars-component"
 
 
@@ -413,27 +413,6 @@ export const Dashboard = () => {
                             <HiOutlineDotsVertical />
                         </div>
                         <div>
-                        {/* <List
-                            dataSource={listData}
-                            renderItem={(item, i) => (
-                                <List.Item key={i}>
-                                <List.Item.Meta
-                                    image={<image src={item.image.large}/>}
-                                    title={`${item.title}, Reviewed by ${item.author}`}
-                                    
-                                />
-                                <div>
-                                <ReactStars 
-                                    count={5} 
-                                    edit={false}
-                                    size={24} 
-                                    activeColor="#ffd700"
-                                    value={item.stars} 
-                                />      
-                                </div>
-                                </List.Item>
-                            )}
-                        /> */}
                             {
                                 listData.map((data, i) => {
                                     return(
