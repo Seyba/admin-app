@@ -343,8 +343,9 @@ export const Dashboard = () => {
     ]
   return (
     <div>
-        <h3 className="mb-4">Dashboard</h3>
+        
         <div className="container">
+            <h3 className="mb-4">Dashboard</h3>
             <div className="row">
                 <div className=" col-md-4">
                     <div className="mb-3 p-3 card">
@@ -481,7 +482,7 @@ export const Dashboard = () => {
                             <h3 className="widget_heading">Recent activities</h3>
                             <HiOutlineDotsVertical />
                         </div>
-                        <div>
+                        <div className="mt-4">
                             <Timeline
                                 items = {timeLineData}
                             />
