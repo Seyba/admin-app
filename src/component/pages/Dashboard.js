@@ -4,6 +4,8 @@ import { CgArrowTopRight, CgArrowBottomRight } from "react-icons/cg";
 import { Link } from 'react-router-dom'
 import { Column, Pie } from '@ant-design/plots'
 import { Table, Card, List  } from 'antd'
+import ReactStars from "react-rating-stars-component"
+
 
 export const Dashboard = () => {
 
@@ -229,7 +231,39 @@ export const Dashboard = () => {
         return <Pie {...config} />
     }
 
-    
+    const listData = [
+        {
+            image: '/images/wiperBlade.jpg',
+            title: 'Wiper Blades Brandix WL2',
+            author: 'Ryan Ford',
+            stars: '3'
+        },
+        {
+            image: '/images/brandix.jpg',
+            title: 'Electric Planer Brandix KL370090G 300 Watts',
+            author: 'Adam Taylor',
+            stars: '4'
+        },
+        {
+            image: '/images/water-tap.jpg',
+            title: 'Water Tap',
+            author: 'Jessica Moore', 
+            stars: '2'
+        },
+        {
+            image: '/images/brandix.jpg',
+            title: 'Brandix Router Power Tool 2017ERXPK',
+            author: 'Helena Garcia',
+            stars: '3'
+        },
+        {
+            image: '/images/ripper.jpg',
+            title: 'Ripper Tool IRadix DPS3000SY 2700 Watts',
+            author: 'Ryan Ford',
+            stars: 5
+        }
+
+    ]
   return (
     <div>
         <h3 className="mb-4">Dashboard</h3>
@@ -378,6 +412,54 @@ export const Dashboard = () => {
                             <h3 className="widget_heading">Recent reviews</h3>
                             <HiOutlineDotsVertical />
                         </div>
+                        <div>
+                        {/* <List
+                            dataSource={listData}
+                            renderItem={(item, i) => (
+                                <List.Item key={i}>
+                                <List.Item.Meta
+                                    image={<image src={item.image.large}/>}
+                                    title={`${item.title}, Reviewed by ${item.author}`}
+                                    
+                                />
+                                <div>
+                                <ReactStars 
+                                    count={5} 
+                                    edit={false}
+                                    size={24} 
+                                    activeColor="#ffd700"
+                                    value={item.stars} 
+                                />      
+                                </div>
+                                </List.Item>
+                            )}
+                        /> */}
+                            {
+                                listData.map((data, i) => {
+                                    return(
+                                        <div className="row widget-border-b">
+                                            <div className="col-md-1">
+                                                <img src={data.image} className="" alt="review"/>
+                                            </div>
+                                            <div className="col-md-8">
+                                                <Link to="" className="review-link">{data.title}</Link>
+                                                <p>Reviewed by {data.author}</p>
+                                            </div>
+                                            <div className="col-md-3">
+                                                <ReactStars 
+                                                    count={5} 
+                                                    edit={false}
+                                                    size={24} 
+                                                    activeColor="#ffd700"
+                                                    value={data.stars} 
+                                                /> 
+                                            </div>    
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+
                     </div>
                 </div>
             </div>
