@@ -3,7 +3,7 @@ import { HiOutlineDotsVertical } from "react-icons/hi";
 import { CgArrowTopRight, CgArrowBottomRight } from "react-icons/cg";
 import { Link } from 'react-router-dom'
 import { Column, Pie } from '@ant-design/plots'
-import { Table } from 'antd'
+import { Table, Card, List  } from 'antd'
 
 export const Dashboard = () => {
 
@@ -228,6 +228,8 @@ export const Dashboard = () => {
         };
         return <Pie {...config} />
     }
+
+    
   return (
     <div>
         <h3 className="mb-4">Dashboard</h3>
@@ -358,6 +360,24 @@ export const Dashboard = () => {
                             })}
                         </div>
                         
+                    </div>
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-md-6 mt-4">
+                    <div className="card p-3">
+                        <div className="d-flex justify-content-between align-items-center">
+                            <h3 className="widget_heading">Recent activities</h3>
+                            <HiOutlineDotsVertical />
+                        </div>
+                    </div>
+                </div>
+                <div className="col-md-6 mt-4">
+                    <div className="card p-3">
+                        <div className="d-flex justify-content-between align-items-center">
+                            <h3 className="widget_heading">Recent reviews</h3>
+                            <HiOutlineDotsVertical />
+                        </div>
                     </div>
                 </div>
             </div>
