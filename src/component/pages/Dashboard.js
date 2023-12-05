@@ -2,7 +2,7 @@ import React from 'react'
 import { HiOutlineDotsVertical } from "react-icons/hi";
 import { CgArrowTopRight, CgArrowBottomRight } from "react-icons/cg";
 import { Link } from 'react-router-dom'
-import { Column } from '@ant-design/plots'
+import { Column, Pie } from '@ant-design/plots'
 import { Table } from 'antd'
 
 export const Dashboard = () => {
@@ -143,31 +143,91 @@ export const Dashboard = () => {
     const salesData = [
         {
             source: 'Yandex',
-            orders: 32,
-            amount: 34839,
+            orders: 12,
+            amount: 2742.00,
         },
         {
             source: 'Youtube',
-            orders: 3,
-            amount: 93843,
+            orders: 51,
+            amount: 3272.00,
         },
         {
             source: 'Google',
-            orders: 32,
-            amount: 94,
+            orders: 4,
+            amount: 2303.00,
         },
         {
             source: 'Facebook',
-            orders: 32,
-            amount: 13033,
+            orders: 10,
+            amount: 1434.00,
         },
         {
             source: 'Instagram',
-            orders: 32,
-            amount: 9844,
+            orders: 1,
+            amount: 799.00,
         },
     ]
-
+    const SalePie = () => {
+        const data = [
+            {
+                type: 'Yandex',
+                value: 12,
+            },
+            {
+                type: 'YouTube',
+                value: 51,
+            },
+            {
+                type: 'Google',
+                value: 4,
+            },
+            {
+                type: 'Facebook',
+                value: 10,
+            },
+            {
+                type: 'Instagram',
+                value: 1,
+            },
+        ]
+        const config = {
+            appendPadding: 15,
+            data,
+            angleField: 'value',
+            colorField: 'type',
+            radius: 1,
+            innerRadius: 0.6,
+            label: {
+              type: 'inner',
+              offset: '-50%',
+              content: '{value}',
+              style: {
+                textAlign: 'center',
+                fontSize: 14,
+              },
+            },
+            interactions: [
+              {
+                type: 'element-selected',
+              },
+              {
+                type: 'element-active',
+              },
+            ],
+            statistic: {
+              title: false,
+              content: {
+                style: {
+                  whiteSpace: 'pre-wrap',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                },
+                content: '',
+              },
+            },
+        };
+        return <Pie {...config} />
+    }
   return (
     <div>
         <h3 className="mb-4">Dashboard</h3>
@@ -272,18 +332,27 @@ export const Dashboard = () => {
                             <h3 className="widget_heading">Sales by traffic source</h3>
                             <HiOutlineDotsVertical />
                         </div>
-                        <div className="d-flex justify-content-between align-items-center">
-                            <div>Source</div>
-                            <div>Orders</div>
-                            <div>Amount</div>
+                        <div>
+                            <SalePie/>
+                        </div>
+                        <div className="d-flex justify-content-between align-items-center mb-2 widget-border-b">
+                            <div className='widget_th py-2'>Source</div>
+                            <div className='widget_th py-2'>Orders</div>
+                            <div className='widget_th py-2'>Amount</div>
                         </div>
                         <div>
                             {salesData?.map(sale => {
                                 return(
-                                    <div className="d-flex justify-content-between align-items-center">
-                                        <div>{sale.source}</div>
-                                        <div>{sale.orders}</div>
-                                        <div>{sale.amount}</div>
+                                    <div className="d-flex justify-content-between  widget-border-b">
+                                        <div className="py-1">
+                                            <p className="mb-0">{sale.source}</p>
+                                        </div>
+                                        <div className="py-1">
+                                            <p className="mb-0">{sale.orders}</p>
+                                        </div>
+                                        <div className="py-1">
+                                            <p className="mb-0">{`$ ${sale.amount}`}</p>
+                                        </div>
                                     </div>
                                 )
                             })}

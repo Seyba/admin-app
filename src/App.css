@@ -4,6 +4,7 @@ body {
 :root {
   --color-6c757d : #6c757d;
   --color-828f99: #828f99;
+  --color-f2f2f2: #f2f2f2;
   --color-212529: #212529;
   --color-f4f6f7: #f4f6f7;
   --color-47AD24: #47AD24;
@@ -70,6 +71,14 @@ main::-webkit-scrollbar {
 .widget-link:hover {
   background-color: var(--color-f4f6f7);
   cursor: pointer;
+}
+.widget-border-b {
+  border-bottom: 1px solid var(--color-f2f2f2);
+}
+.widget_th{
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-6c757d);
 }
 .indicator-value{
   font-size: 32px;
