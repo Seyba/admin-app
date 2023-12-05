@@ -59,6 +59,10 @@ main::-webkit-scrollbar {
   font-weight: 500;
   color: var(--color-828f99);
 }
+.widget_heading {
+  font-size: 17px;
+  font-weight: 600;
+}
 .widget-link {
   font-size: 16px;
   color: var(--color-212529);

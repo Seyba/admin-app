@@ -139,6 +139,35 @@ export const Dashboard = () => {
             total: 349
         })
     }
+
+    const salesData = [
+        {
+            source: 'Yandex',
+            orders: 32,
+            amount: 34839,
+        },
+        {
+            source: 'Youtube',
+            orders: 3,
+            amount: 93843,
+        },
+        {
+            source: 'Google',
+            orders: 32,
+            amount: 94,
+        },
+        {
+            source: 'Facebook',
+            orders: 32,
+            amount: 13033,
+        },
+        {
+            source: 'Instagram',
+            orders: 32,
+            amount: 9844,
+        },
+    ]
+
   return (
     <div>
         <h3 className="mb-4">Dashboard</h3>
@@ -194,7 +223,7 @@ export const Dashboard = () => {
                 <div className="col-md-3">
                     <div className="card p-3">
                         <div className="d-flex justify-content-between align-items-center">
-                            <h3>Active users</h3>
+                            <h3 className="widget_heading">Active users</h3>
                             <HiOutlineDotsVertical />
                         </div>
                         <div className="text-center">
@@ -202,8 +231,8 @@ export const Dashboard = () => {
                         </div>
                         <div>
                             <div className="d-flex justify-content-between">
-                                <h3>Active pages</h3>
-                                <h3>Users</h3>
+                                <h3 className="widget_heading">Active pages</h3>
+                                <h3 className="widget_heading">Users</h3>
                             </div>
                             <ul>
                                 <li>
@@ -216,7 +245,7 @@ export const Dashboard = () => {
                 <div className="col-md-9">
                     <div className="card p-3">
                         <div className="mb-4 d-flex justify-content-between align-items-center">
-                            <h3 className="mb-4">Income Statics</h3>
+                            <h3 className="widget_heading mb-4">Income Statics</h3>
                             <HiOutlineDotsVertical />
                         </div>
                         <div>
@@ -229,7 +258,7 @@ export const Dashboard = () => {
                 <div className="col-md-9 mt-4">
                     <div className="card p-3">
                         <div className="d-flex justify-content-between align-items-center">
-                            <h3>Recent Orders</h3>
+                            <h3 className="widget_heading">Recent Orders</h3>
                             <HiOutlineDotsVertical />
                         </div>
                         <div>
@@ -240,8 +269,24 @@ export const Dashboard = () => {
                 <div className="col-md-3 mt-4">
                     <div className="card p-3">
                         <div className="d-flex justify-content-between align-items-center">
-                            <h3>Sales by traffic source</h3>
+                            <h3 className="widget_heading">Sales by traffic source</h3>
                             <HiOutlineDotsVertical />
+                        </div>
+                        <div className="d-flex justify-content-between align-items-center">
+                            <div>Source</div>
+                            <div>Orders</div>
+                            <div>Amount</div>
+                        </div>
+                        <div>
+                            {salesData?.map(sale => {
+                                return(
+                                    <div className="d-flex justify-content-between align-items-center">
+                                        <div>{sale.source}</div>
+                                        <div>{sale.orders}</div>
+                                        <div>{sale.amount}</div>
+                                    </div>
+                                )
+                            })}
                         </div>
                         
                     </div>
