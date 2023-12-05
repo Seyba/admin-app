@@ -408,7 +408,7 @@ export const Dashboard = () => {
                 </div>
                 <div className="col-md-6 mt-4">
                     <div className="card p-3">
-                        <div className="d-flex justify-content-between align-items-center">
+                        <div className="d-flex justify-content-between align-items-center py-2">
                             <h3 className="widget_heading">Recent reviews</h3>
                             <HiOutlineDotsVertical />
                         </div>
@@ -416,13 +416,13 @@ export const Dashboard = () => {
                             {
                                 listData.map((data, i) => {
                                     return(
-                                        <div className="row widget-border-b">
+                                        <div className="row widget-border-t py-2">
                                             <div className="col-md-1">
                                                 <img src={data.image} className="" alt="review"/>
                                             </div>
                                             <div className="col-md-8">
                                                 <Link to="" className="review-link">{data.title}</Link>
-                                                <p>Reviewed by {data.author}</p>
+                                                <p className="mb-0 review-p">Reviewed by <Link className="review-p_link" to="">{data.author}</Link></p>
                                             </div>
                                             <div className="col-md-3">
                                                 <ReactStars 
