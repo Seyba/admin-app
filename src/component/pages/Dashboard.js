@@ -121,13 +121,11 @@ export const Dashboard = () => {
         },
         {
             title: 'Date',
-            dataIndex: 'address',
-            key: 'address',
+            dataIndex: 'date'
         },
         {
             title: 'Total',
-            dataIndex: 'address',
-            key: 'address',
+            dataIndex: 'total'
         },
     ];
     const orderData = []
@@ -136,7 +134,9 @@ export const Dashboard = () => {
             key: i,
             name: `Edward King ${i}`,
             product: 32,
-            status: `London, Park Lane no. ${i}`
+            status: `London, Park Lane no. ${i}`,
+            date: new Date().getFullYear(),
+            total: 349
         })
     }
   return (
