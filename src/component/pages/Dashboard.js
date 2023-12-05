@@ -1,9 +1,74 @@
 import React from 'react'
 import { HiOutlineDotsVertical } from "react-icons/hi";
-import { CgArrowTopRight } from "react-icons/cg";
+import { CgArrowTopRight, CgArrowBottomRight } from "react-icons/cg";
 import { Link } from 'react-router-dom'
+import { Column } from '@ant-design/plots';
 
 export const Dashboard = () => {
+
+    const data = [
+        {
+          type: 'Jan',
+          sales: 38,
+        },
+        {
+          type: 'Feb',
+          sales: 52,
+        },
+        {
+          type: 'Mar',
+          sales: 61,
+        },
+        {
+          type: 'Apr',
+          sales: 145,
+        },
+        {
+          type: 'May',
+          sales: 48,
+        },
+        {
+          type: 'Jun',
+          sales: 38,
+        },
+        {
+          type: 'Jul',
+          sales: 38,
+        },
+        {
+          type: 'Aug',
+          sales: 38,
+        },
+    ];
+    const config = {
+    data,
+    xField: 'type',
+    yField: 'sales',
+    color: ({type}) => {
+        return '#ffd333';
+    },
+    label: {
+        position: 'middle',
+        style: {
+        fill: '#FFFFFF',
+        opacity: 1,
+        },
+    },
+    xAxis: {
+        label: {
+        autoHide: true,
+        autoRotate: false,
+        },
+    },
+    meta: {
+        type: {
+        alias: 'Month',
+        },
+        sales: {
+        alias: 'income',
+        },
+    },
+    };
   return (
     <div>
         <h3 className="mb-4">Dashboard</h3>
@@ -66,13 +131,13 @@ export const Dashboard = () => {
                             <h3>148</h3>
                         </div>
                         <div>
-                            <div>
+                            <div className="d-flex justify-content-between">
                                 <h3>Active pages</h3>
                                 <h3>Users</h3>
                             </div>
                             <ul>
                                 <li>
-                                    <Link to="">/products/brandix-z4</Link>
+                                    <Link to="">/products/brandix-z4</Link> 10
                                 </li>
                             </ul>
                         </div>
@@ -80,7 +145,10 @@ export const Dashboard = () => {
                 </div>
                 <div className="col-md-9">
                     <div className="card">
-
+                        <h3 className="mb-4">Income Statics</h3>
+                        <div>
+                            <Column {...config} />
+                        </div>
                     </div>
                 </div>
             </div>
