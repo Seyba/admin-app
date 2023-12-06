@@ -2,7 +2,7 @@ import React from 'react'
 import { Table } from 'antd'
 
 
-export const Enquiries = () => {
+export const Orders = () => {
     const columns = [
         {
           title: 'SNo',
@@ -43,7 +43,7 @@ export const Enquiries = () => {
 
   return (
     <div className='container'>
-        <h3 className="mb-4">Enquiries</h3>
+        <h3 className="mb-4">Orders</h3>
         <div className="card">
             <div className="col-md-12">
                 <div>
