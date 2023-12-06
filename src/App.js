@@ -8,6 +8,8 @@ import { MainLayout } from './component/MainLayout';
 import { Enquiries } from './component/pages/Enquiries';
 import { BlogList } from './component/pages/BlogList';
 import { Orders } from './component/pages/Orders';
+import { Customers } from './component/pages/Customers';
+import { ColorList } from './component/pages/ColorList';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
           <Route path="enquiries" element={<Enquiries/>}/>
           <Route path="list-blog" element={<BlogList/>}/>
           <Route path="orders" element={<Orders/>}/>
+          <Route path="customers" element={<Customers/>}/>
+          <Route path="list-color" element={<ColorList/>}/>
         </Route>
       </Routes>
     </Router>
