@@ -120,6 +120,33 @@ main::-webkit-scrollbar {
 .review-p_link:hover {
   color: var(--color-6c757d);
 }
+/* ul.dropdown-menu {
+  position: absolute;
+  z-index: 1000;
+  display: none;
+  min-width: 10rem;
+  padding: 0.5rem 0;
+  margin: 0;
+  font-size: 0.9375rem;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0 solid transparent;
+  border-radius: 2px;
+  box-shadow: 0 1px 15px #19264026, 0 1px 3px #1926401f, inset 0 -1px #19264008;
+}
+ul.dropdown-menu .show {
+  position: absolute;
+  inset: 0px auto auto 0px;
+  margin: 0px;
+  transform: translate(0px, 53px);
+} */
+.dropdown-menu {
+  transform: translate3d(0px, 13px, 0px) !important;
+  border-top: none;
+}
 /*============================ Dashboard Section Ends =================================*/
 .quill {
   background-color: #ffffff;

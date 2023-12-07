@@ -170,20 +170,20 @@ export const MainLayout= () => {
                                     <p className="mb-0">JohnDoe@gmail.com</p>
                                 </div>
                                 <ul className={`dropdown-menu ${userMenuOpen? 'show' : ''} `}>
-                                    <li>
-                                        <Link to="" className="dropdown-item">Profile</Link>
+                                    <li onClick={() => setUserMenuOpen(!userMenuOpen)}>
+                                        <Link to="" style={{height: "auto", lineHeight: "20px"}} className="dropdown-item ">View Profile</Link>
                                     </li>
-                                    <li>
-                                        <Link to="" className="dropdown-item">Inbox</Link>
+                                    <li onClick={() => setUserMenuOpen(!userMenuOpen)}>
+                                        <Link to="" style={{height: "auto", lineHeight: "20px"}} className="dropdown-item">Change Password</Link>
                                     </li>
-                                    <li>
-                                        <Link to="" className="dropdown-item">Settings</Link>
+                                    <li onClick={() => setUserMenuOpen(!userMenuOpen)}>
+                                        <Link to="" style={{height: "auto", lineHeight: "20px"}} className="dropdown-item">Settings</Link>
                                     </li>
-                                    <li>
+                                    <li >
                                         <hr className="dropdown-divider"/>
                                     </li>
-                                    <li>
-                                        <Link to="" className="dropdown-item">Sign Out</Link>
+                                    <li onClick={() => setUserMenuOpen(!userMenuOpen)}>
+                                        <Link to="" style={{height: "auto", lineHeight: "20px"}} className="dropdown-item">Sign Out</Link>
                                     </li>
                                 </ul>
                             </div>    
