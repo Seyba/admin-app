@@ -21,7 +21,9 @@ const { Header, Sider, Content } = Layout;
 
 export const MainLayout= () => {
     const navigate = useNavigate()
-    const [collapsed, setCollapsed] = useState(false);
+    const [collapsed, setCollapsed] = useState(false)
+    const [userMenuOpen, setUserMenuOpen] = useState(false)
+
     const {
       token: { colorBgContainer },
     } = theme.useToken();
@@ -105,7 +107,7 @@ export const MainLayout= () => {
                             label: 'Blogs',
                             children:[
                                 {
-                                    key: 'blog',
+                                    key: 'add-blog',
                                     label: 'Add Blog'
                                 },
                                 {
@@ -163,9 +165,29 @@ export const MainLayout= () => {
                                 />
                             </div>
                             <div>
-                                <h5 className="mb-0">John Doe</h5>
-                                <p className="mb-0">JohnDoe@gmail.com</p>
-                            </div>
+                                <div onClick={() => setUserMenuOpen(!userMenuOpen)}>
+                                    <h5 className="mb-0">John Doe</h5>
+                                    <p className="mb-0">JohnDoe@gmail.com</p>
+                                </div>
+                                <ul className={`dropdown-menu ${userMenuOpen? 'show' : ''} `}>
+                                    <li>
+                                        <Link to="" className="dropdown-item">Profile</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="" className="dropdown-item">Inbox</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="" className="dropdown-item">Settings</Link>
+                                    </li>
+                                    <li>
+                                        <hr className="dropdown-divider"/>
+                                    </li>
+                                    <li>
+                                        <Link to="" className="dropdown-item">Sign Out</Link>
+                                    </li>
+                                </ul>
+                            </div>    
+                            
                         </div>
                     </div>
                 </Header>

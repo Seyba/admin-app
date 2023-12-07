@@ -4,6 +4,7 @@ body {
 :root {
   --color-6c757d : #6c757d;
   --color-828f99: #828f99;
+  --color-c3d4da: #c3d4da;
   --color-f2f2f2: #f2f2f2;
   --color-212529: #212529;
   --color-f4f6f7: #f4f6f7;
@@ -122,4 +123,12 @@ main::-webkit-scrollbar {
 /*============================ Dashboard Section Ends =================================*/
 .quill {
   background-color: #ffffff;
+}
+.form-control {
+  box-shadow: none;
+  border-color: var(--color-c3d4da);
+}
+.title {
+  font-size: 28px;
+  font-family: Roboto !important;
 }

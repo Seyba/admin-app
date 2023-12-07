@@ -32,7 +32,7 @@ function App() {
           <Route path="brand" element={<AddBrand/>}/>
           <Route path="enquiries" element={<Enquiries/>}/>
           <Route path="list-blog" element={<BlogList/>}/>
-          <Route path="blog" element={<AddBlog/>}/>
+          <Route path="add-blog" element={<AddBlog/>}/>
           <Route path="blog-category" element={<AddBlogCat/>}/>
           <Route path="orders" element={<Orders/>}/>
           <Route path="category" element={<AddCategory/>}/>
