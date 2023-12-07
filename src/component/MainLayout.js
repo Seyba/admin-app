@@ -59,24 +59,24 @@ export const MainLayout= () => {
                                     label:'Add Product'
                                 },
                                 {
-                                    key: 'Product-list',
+                                    key: 'list-product',
                                     label:'Product List'
                                 },
                                 {
-                                    key: 'Category',
+                                    key: 'brand',
                                     label:'Brand'
                                 },
                                 {
                                     key:'list-category',
-                                    label:'Brand List'
+                                    label:'Category List'
+                                },
+                                {
+                                    key:'list-brand',
+                                    label: 'Brand List'
                                 },
                                 {
                                     key:'Category',
                                     label:'Category'
-                                },
-                                {
-                                    key:'list-category',
-                                    label:'Category List'
                                 },
                                 {
                                     key:'Color',
@@ -105,7 +105,7 @@ export const MainLayout= () => {
                             label: 'Blogs',
                             children:[
                                 {
-                                    key: 'Blog',
+                                    key: 'blog',
                                     label: 'Add Blog'
                                 },
                                 {

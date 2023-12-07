@@ -1,7 +1,7 @@
 import React from 'react'
 import { Table } from 'antd'
 
-export const CategoryList = () => {
+export const ProductList = () => {
     const columns = [
         {
           title: 'SNo',
@@ -42,7 +42,7 @@ export const CategoryList = () => {
 
   return (
     <div className='container'>
-        <h3 className="mb-4">Product Categories</h3>
+        <h3 className="mb-4">Products</h3>
         <div className="card">
             <div className="col-md-12">
                 <div>
