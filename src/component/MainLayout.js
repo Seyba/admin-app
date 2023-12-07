@@ -50,12 +50,12 @@ export const MainLayout= () => {
                             label: 'Dashboard',
                         },
                         {
-                            key: 'Catalog',
+                            key: 'catalog',
                             icon: <MdOutlineShoppingCart className="fs-4 "/>,
                             label: 'Catalog',
                             children: [
                                 {
-                                    key: 'Product',
+                                    key: 'product',
                                     label:'Add Product'
                                 },
                                 {
@@ -75,7 +75,7 @@ export const MainLayout= () => {
                                     label: 'Brand List'
                                 },
                                 {
-                                    key:'Category',
+                                    key:'category',
                                     label:'Category'
                                 },
                                 {
@@ -90,17 +90,17 @@ export const MainLayout= () => {
                             ]
                         },
                         {
-                            key: 'Customers',
+                            key: 'customers',
                             icon: <FaRegUser className="fs-4"/>,
                             label: 'Customers',
                         },
                         {
-                            key: 'Orders',
+                            key: 'orders',
                             icon: <FaClipboardList className="fs-4"/>,
                             label: 'Orders',
                         },
                         {
-                            key: 'Blog',
+                            key: 'blog',
                             icon: <FaBloggerB className="fs-4"/>,
                             label: 'Blogs',
                             children:[
@@ -123,7 +123,7 @@ export const MainLayout= () => {
                             ]
                         },
                         {
-                            key: 'Enquiries',
+                            key: 'enquiries',
                             icon: <FaClipboardList className="fs-4"/>,
                             label: 'Enquiries',
                         }

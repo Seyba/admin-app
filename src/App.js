@@ -16,6 +16,8 @@ import { ProductList } from './component/pages/ProductList';
 import { AddBlog } from './component/pages/AddBlog';
 import { AddBlogCat } from './component/pages/AddBlogCat';
 import { AddColor } from './component/pages/AddColor';
+import { AddCategory } from './component/pages/AddCategory';
+import { AddBrand } from './component/pages/AddBrand';
 
 function App() {
   return (
@@ -26,11 +28,13 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPassword/>}/>
         <Route path="/admin" element={<MainLayout/>}>
           <Route index element={<Dashboard/>}/>
+          <Route path="brand" element={<AddBrand/>}/>
           <Route path="enquiries" element={<Enquiries/>}/>
           <Route path="list-blog" element={<BlogList/>}/>
           <Route path="blog" element={<AddBlog/>}/>
           <Route path="blog-category" element={<AddBlogCat/>}/>
           <Route path="orders" element={<Orders/>}/>
+          <Route path="category" element={<AddCategory/>}/>
           <Route path="customers" element={<Customers/>}/>
           <Route path="color" element={<AddColor/>}/>
           <Route path="list-color" element={<ColorList/>}/>
