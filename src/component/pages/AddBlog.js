@@ -29,42 +29,42 @@ const props = {
 }
 
 export const AddBlog = () => {
-    const [desc, setDesc] = useState([])
+  const [desc, setDesc] = useState([])
 
-    const handleDesc = (e) => {
-        setDesc(e)
-    }
+  const handleDesc = (e) => {
+    setDesc(e)
+  }
   return (
     <div>
-        <h3 className="mb-4">Add Blog</h3>
-        
-        <Stepper 
-            steps={[{label: "Add blog details"},{label: "Upload images"},{label: "Submit blog"}, ]}
-            activeStep={1}
-        />
-        <div className="">
-            <form>
+      <h3 className="mb-4">Add Blog</h3>
+      
+      <Stepper 
+        steps={[{label: "Add blog details"},{label: "Upload images"},{label: "Submit blog"} ]}
+        activeStep={1}
+      />
+      <div className="">
+        <form>
 
-                <Dragger {...props}>
-                    <p className="ant-upload-drag-icon">
-                        <InboxOutlined />
-                    </p>
-                    <p className="ant-upload-text">Click or drag file to this area to upload</p>
-                    <p className="ant-upload-hint">
-                        Support for a single or bulk upload. Strictly prohibited from uploading company data or other
-                        banned files.
-                    </p>
-                </Dragger>
-                <div className="mt-4">
-                    <CustomInput type="text" label="Enter Blog Title" />
-                </div>
-                <select className="form-control py-3 mb-3" name="" id="" >
-                    <option>Select Blog Category</option>
-                </select>
-                <ReactQuill theme="snow" value={desc} onChange={(e) => {handleDesc(e)}}/>
-                <button type="submit" className="btn btn-success border-0 rounded-3 my-5">Add Blog</button>
-            </form>
-        </div>
+          <Dragger {...props}>
+            <p className="ant-upload-drag-icon">
+              <InboxOutlined />
+            </p>
+            <p className="ant-upload-text">Click or drag file to this area to upload</p>
+            <p className="ant-upload-hint">
+              Support for a single or bulk upload. Strictly prohibited from uploading company data or other
+              banned files.
+            </p>
+          </Dragger>
+          <div className="mt-4">
+            <CustomInput type="text" label="Enter Blog Title" />
+          </div>
+          <select className="form-control py-3 mb-3" name="" id="" >
+            <option>Select Blog Category</option>
+          </select>
+          <ReactQuill theme="snow" value={desc} onChange={(e) => {handleDesc(e)}}/>
+          <button type="submit" className="btn btn-success border-0 rounded-3 my-5">Add Blog</button>
+        </form>
+      </div>
     </div>
   )
 }

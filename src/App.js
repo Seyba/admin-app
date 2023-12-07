@@ -14,6 +14,8 @@ import { CategoryList } from './component/pages/CategoryList';
 import { BrandList } from './component/pages/BrandList';
 import { ProductList } from './component/pages/ProductList';
 import { AddBlog } from './component/pages/AddBlog';
+import { AddBlogCat } from './component/pages/AddBlogCat';
+import { AddColor } from './component/pages/AddColor';
 
 function App() {
   return (
@@ -26,13 +28,16 @@ function App() {
           <Route index element={<Dashboard/>}/>
           <Route path="enquiries" element={<Enquiries/>}/>
           <Route path="list-blog" element={<BlogList/>}/>
+          <Route path="blog" element={<AddBlog/>}/>
+          <Route path="blog-category" element={<AddBlogCat/>}/>
           <Route path="orders" element={<Orders/>}/>
           <Route path="customers" element={<Customers/>}/>
+          <Route path="color" element={<AddColor/>}/>
           <Route path="list-color" element={<ColorList/>}/>
           <Route path="list-category" element={<CategoryList/>}/>
           <Route path="list-brand" element={<BrandList/>}/>
           <Route path="list-product" element={<ProductList/>}/>
-          <Route path="blog" element={<AddBlog/>}/>
+          
         </Route>
       </Routes>
     </Router>

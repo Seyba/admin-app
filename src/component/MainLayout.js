@@ -79,7 +79,7 @@ export const MainLayout= () => {
                                     label:'Category'
                                 },
                                 {
-                                    key:'Color',
+                                    key:'color',
                                     label:'Color'
                                 },
                                 {
