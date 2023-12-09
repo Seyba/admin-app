@@ -1,44 +1,56 @@
-import React from 'react'
+import React, {useEffect } from 'react'
 import { Table } from 'antd'
+import { useDispatch, useSelector } from 'react-redux';
+import { getUsers } from '../../features/customers/customerSlice';
 
 
 export const Customers = () => {
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getUsers())
+    },[])
+
+    const customerState = useSelector((state) => state.customers.customers)
+    
+    const data1 = []
+
     const columns = [
         {
           title: 'SNo',
           dataIndex: 'key'
+          
         },
         {
           title: 'Name',
-          dataIndex: 'name'
+          dataIndex: 'name',
+          sorter: (a, b) => a.name.length - b.name.length
         },
         {
-          title: 'Product',
-          dataIndex: 'product'
+          title: 'Mobile',
+          dataIndex: 'mobile'
         },
         {
-            title: 'Status',
-            dataIndex: 'status'
+            title: 'Email',
+            dataIndex: 'email'
         },
         {
             title: 'Date',
             dataIndex: 'date'
         },
-        {
-            title: 'Total',
-            dataIndex: 'total'
-        },
+        
     ];
-    const orderData = []
-    for(let i = 0; i < 46; i++) {
-        orderData.push({
-            key: i,
-            name: `Edward King ${i}`,
-            product: 32,
-            status: `London, Park Lane no. ${i}`,
-            date: new Date().getFullYear(),
-            total: 349
-        })
+
+    for(let i = 0; i < customerState.length; i++) {
+        if(customerState[i].role !== 'admin') {
+            data1.push({
+                key: customerState[i]._id,
+                name: `${customerState[i].firstname} ${customerState[i].lastname}`,
+                email: customerState[i].email,
+                mobile: customerState[i].mobile,
+                date: customerState[i].createdAt
+            })
+        }
     }
 
   return (
@@ -47,7 +59,7 @@ export const Customers = () => {
         <div className="card">
             <div className="col-md-12">
                 <div>
-                    <Table dataSource={orderData} columns={columns} />;
+                    <Table dataSource={data1} columns={columns} />;
                 </div>
             </div>
         </div>
