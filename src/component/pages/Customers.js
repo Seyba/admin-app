@@ -48,7 +48,7 @@ export const Customers = () => {
                 name: `${customerState[i].firstname} ${customerState[i].lastname}`,
                 email: customerState[i].email,
                 mobile: customerState[i].mobile,
-                date: customerState[i].createdAt
+                date: customerState[i].createdAt.slice(0, 16).replace('T', ' ')
             })
         }
     }
