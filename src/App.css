@@ -54,7 +54,10 @@ main::-webkit-scrollbar {
   top: 16px;
   right: -5px;
 }
-
+.error {
+  font-size: 12px;
+  color: #ff0000;
+}
 /*============================ Dashboard Section Starts ===============================*/
 .widget-header {
   font-size: 14px;
