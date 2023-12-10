@@ -43,7 +43,7 @@ export const ProductList = () => {
     },[])
 
     const productState = useSelector((state) => state.products.products)
-    const orderData = []
+
     const data = []
 
     for(let i = 0; i < productState.length; i++) {
@@ -58,16 +58,6 @@ export const ProductList = () => {
         })
     }
 
-    for(let i = 0; i < 46; i++) {
-        orderData.push({
-            key: i,
-            name: `Edward King ${i}`,
-            product: 32,
-            status: `London, Park Lane no. ${i}`,
-            date: new Date().getFullYear(),
-            total: 349
-        })
-    }
 
   return (
     <div className='container'>
