@@ -2,7 +2,7 @@ import axios from 'axios'
 import { base_url } from '../../utils/base_url'
 
 const getProducts = async () => {
-    const response = await axios.get(`${base_url}products`)
+    const response = await axios.get(`${base_url}product`)
 
     // if(response.data){
     //     localStorage.setItem('user', JSON.stringify(response.data))

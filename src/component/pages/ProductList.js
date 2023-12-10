@@ -1,34 +1,63 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Table } from 'antd'
+import { getProducts } from '../../features/products/productSlice'
+import { useDispatch, useSelector } from 'react-redux'
 
 export const ProductList = () => {
+    const dispatch = useDispatch()
+
     const columns = [
         {
           title: 'SNo',
           dataIndex: 'key'
         },
         {
-          title: 'Name',
-          dataIndex: 'name'
+          title: 'Title',
+          dataIndex: 'title'
         },
         {
-          title: 'Product',
-          dataIndex: 'product'
+          title: 'Description',
+          dataIndex: 'description'
         },
         {
-            title: 'Status',
-            dataIndex: 'status'
+            title: 'Price',
+            dataIndex: 'price'
         },
         {
-            title: 'Date',
-            dataIndex: 'date'
+            title: 'Category',
+            dataIndex: 'category'
         },
         {
-            title: 'Total',
-            dataIndex: 'total'
+            title: 'Brand',
+            dataIndex: 'brand'
+        },
+        {
+            title: 'Quantity',
+            dataIndex: 'quantity'
         },
     ];
+
+
+    useEffect(() => {
+        dispatch(getProducts())
+    },[])
+
+    const productState = useSelector((state) => state.products.products)
     const orderData = []
+    const data = []
+
+    for(let i = 0; i < productState.length; i++) {
+        data.push({
+            key: productState[i]._id,
+            title: productState[i].title,
+            description: productState[i].description,
+            price: `$${productState[i].price}`,
+            category: productState[i].category,
+            brand: productState[i].brand,
+            quantity: productState[i].quantity
+        })
+    }
+
     for(let i = 0; i < 46; i++) {
         orderData.push({
             key: i,
@@ -46,7 +75,7 @@ export const ProductList = () => {
         <div className="card">
             <div className="col-md-12">
                 <div>
-                    <Table dataSource={orderData} columns={columns} />;
+                    <Table dataSource={data} columns={columns} />;
                 </div>
             </div>
         </div>
