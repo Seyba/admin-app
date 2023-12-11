@@ -7,6 +7,7 @@ import { ResetPassword } from './component/pages/ResetPassword'
 import { MainLayout } from './component/MainLayout';
 import { Enquiries } from './component/pages/Enquiries';
 import { BlogList } from './component/pages/BlogList';
+import { BlogCategoryList} from './component/pages/BlogCategoryList'
 import { Orders } from './component/pages/Orders';
 import { Customers } from './component/pages/Customers';
 import { ColorList } from './component/pages/ColorList';
@@ -34,6 +35,7 @@ function App() {
           <Route path="list-blog" element={<BlogList/>}/>
           <Route path="add-blog" element={<AddBlog/>}/>
           <Route path="blog-category" element={<AddBlogCat/>}/>
+          <Route path="blog-category-list" element={<BlogCategoryList/>}/>
           <Route path="orders" element={<Orders/>}/>
           <Route path="category" element={<AddCategory/>}/>
           <Route path="customers" element={<Customers/>}/>

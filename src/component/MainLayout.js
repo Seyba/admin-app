@@ -119,7 +119,7 @@ export const MainLayout= () => {
                                     label: 'Add Blog Category'
                                 },
                                 {
-                                    Key: 'blog-category-list',
+                                    key: 'blog-category-list',
                                     label: 'Blog Category List'
                                 }
                             ]
