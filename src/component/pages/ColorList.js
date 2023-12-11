@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux';
 import { Table } from 'antd'
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { getColors } from '../../features/color/colorSlice'
 

@@ -1,8 +1,18 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Table } from 'antd'
+import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom'
+import { getEnquiries } from '../../features/enquiries/enquirySlice'
 
 
 export const Enquiries = () => {
+    const dispatch = useDispatch()
+    const enqState = useSelector((state) => state.enquiries.enquiries)
+
+    useEffect(() => {
+        dispatch(getEnquiries())
+    }, [])
+
     const columns = [
         {
           title: 'SNo',
@@ -13,31 +23,31 @@ export const Enquiries = () => {
           dataIndex: 'name'
         },
         {
-          title: 'Product',
-          dataIndex: 'product'
+          title: 'Email',
+          dataIndex: 'email'
+        },
+        {
+            title: 'Mobile',
+            dataIndex: 'mobile'
+        },
+        {
+            title: 'Comment',
+            dataIndex: 'comment'
         },
         {
             title: 'Status',
             dataIndex: 'status'
         },
-        {
-            title: 'Date',
-            dataIndex: 'date'
-        },
-        {
-            title: 'Total',
-            dataIndex: 'total'
-        },
     ];
-    const orderData = []
-    for(let i = 0; i < 46; i++) {
-        orderData.push({
-            key: i,
-            name: `Edward King ${i}`,
-            product: 32,
-            status: `London, Park Lane no. ${i}`,
-            date: new Date().getFullYear(),
-            total: 349
+    const data = []
+    for(let i = 0; i < enqState.length; i++) {
+        data.push({
+            key: enqState[i]._id,
+            name: enqState[i].name,
+            email: enqState[i].email,
+            mobile: enqState[i].mobile,
+            comment: enqState[i].comment,
+            status: enqState[i].status
         })
     }
 
@@ -47,7 +57,7 @@ export const Enquiries = () => {
         <div className="card">
             <div className="col-md-12">
                 <div>
-                    <Table dataSource={orderData} columns={columns} />;
+                    <Table dataSource={data} columns={columns} />;
                 </div>
             </div>
         </div>
