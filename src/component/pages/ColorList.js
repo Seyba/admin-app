@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux';
 import { Table } from 'antd'
+import { Link } from 'react-router-dom'
+import { getColors } from '../../features/color/colorSlice'
 
 export const ColorList = () => {
+    const dispatch = useDispatch()
+
     const columns = [
         {
           title: 'SNo',
@@ -28,9 +33,15 @@ export const ColorList = () => {
             dataIndex: 'total'
         },
     ];
-    const orderData = []
-    for(let i = 0; i < 46; i++) {
-        orderData.push({
+
+    useEffect(() => {
+        dispatch(getColors())
+    },[])
+    const colorState = useSelector((state) => state.colors.colors)
+
+    const data = []
+    for(let i = 0; i < colorState.length; i++) {
+        data.push({
             key: i,
             name: `Edward King ${i}`,
             product: 32,
@@ -46,7 +57,7 @@ export const ColorList = () => {
         <div className="card">
             <div className="col-md-12">
                 <div>
-                    <Table dataSource={orderData} columns={columns} />;
+                    <Table dataSource={data} columns={columns} />;
                 </div>
             </div>
         </div>
