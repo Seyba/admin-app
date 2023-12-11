@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import brandService from "./brandService"
 
 
-export const getBrands = createAsyncThunk('product/get-brands', async (thunkApi) => {
+export const getBrands = createAsyncThunk('brand/get-brands', async (thunkApi) => {
     try {
         return await brandService.getBrands()
     } catch (error) {
@@ -31,7 +31,7 @@ export const brandSlice = createSlice({
             state.isLoading = false;
             state.isError = false;
             state.isSuccess = true;
-            state.products = action.payload;
+            state.brands = action.payload;
         })
         .addCase(getBrands.rejected, (state, action) => {
             state.isLoading = false;
