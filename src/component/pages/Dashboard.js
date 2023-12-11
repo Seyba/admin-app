@@ -236,25 +236,25 @@ export const Dashboard = () => {
             image: '/images/wiperBlade.jpg',
             title: 'Wiper Blades Brandix WL2',
             author: 'Ryan Ford',
-            stars: '3'
+            stars: 3
         },
         {
             image: '/images/brandix.jpg',
             title: 'Electric Planer Brandix KL370090G 300 Watts',
             author: 'Adam Taylor',
-            stars: '4'
+            stars: 3
         },
         {
             image: '/images/water-tap.jpg',
             title: 'Water Tap',
             author: 'Jessica Moore', 
-            stars: '2'
+            stars: 2
         },
         {
             image: '/images/brandix.jpg',
             title: 'Brandix Router Power Tool 2017ERXPK',
             author: 'Helena Garcia',
-            stars: '3'
+            stars: 3
         },
         {
             image: '/images/ripper.jpg',
@@ -267,19 +267,19 @@ export const Dashboard = () => {
             image: '/images/water-tap.jpg',
             title: 'Water Tap',
             author: 'Jessica Moore', 
-            stars: '2'
+            stars: 2
         },
         {
             image: '/images/brandix.jpg',
             title: 'Electric Planer Brandix KL370090G 300 Watts',
             author: 'Adam Taylor',
-            stars: '4'
+            stars: 4
         },
         {
             image: '/images/wiperBlade.jpg',
             title: 'Wiper Blades Brandix WL2',
             author: 'Ryan Ford',
-            stars: '3'
+            stars: 3
         }
 
     ]
@@ -455,9 +455,9 @@ export const Dashboard = () => {
                             <div className='widget_th py-2'>Amount</div>
                         </div>
                         <div>
-                            {salesData?.map(sale => {
+                            {salesData?.map((sale, i) => {
                                 return(
-                                    <div className="d-flex justify-content-between  widget-border-b">
+                                    <div className="d-flex justify-content-between  widget-border-b" key={i}>
                                         <div className="py-1">
                                             <p className="mb-0">{sale.source}</p>
                                         </div>
@@ -500,7 +500,7 @@ export const Dashboard = () => {
                             {
                                 listData.map((data, i) => {
                                     return(
-                                        <div className="row widget-border-t py-2">
+                                        <div className="row widget-border-t py-2" key={i}>
                                             <div className="col-md-1">
                                                 <img src={data.image} className="" alt="review"/>
                                             </div>
