@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Table } from 'antd'
-
+import { useSelector, useDispatch } from 'react-redux';
+import { getOrders } from '../../features/orders/orderSlice';
 
 export const Orders = () => {
+    const dispatch = (useDispatch)
+    const orderState = useSelector((state) => state.orders.orders)
+
+    useEffect(() => {
+        dispatch(getOrders())
+    }, [])
+
     const columns = [
         {
           title: 'SNo',
@@ -29,9 +37,9 @@ export const Orders = () => {
             dataIndex: 'total'
         },
     ];
-    const orderData = []
-    for(let i = 0; i < 46; i++) {
-        orderData.push({
+    const data = []
+    for(let i = 0; i < orderState.length; i++) {
+        data.push({
             key: i,
             name: `Edward King ${i}`,
             product: 32,
@@ -47,7 +55,7 @@ export const Orders = () => {
         <div className="card">
             <div className="col-md-12">
                 <div>
-                    <Table dataSource={orderData} columns={columns} />;
+                    <Table dataSource={data} columns={columns} />;
                 </div>
             </div>
         </div>
