@@ -4,8 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getOrders } from '../../features/orders/orderSlice';
 
 export const Orders = () => {
-    const dispatch = (useDispatch)
-    const orderState = useSelector((state) => state.orders.orders)
+    const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(getOrders())
@@ -37,6 +36,8 @@ export const Orders = () => {
             dataIndex: 'total'
         },
     ];
+
+    const orderState = useSelector((state) => state.auth.orders)
     const data = []
     for(let i = 0; i < orderState.length; i++) {
         data.push({

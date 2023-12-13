@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { base_url } from '../../utils/base_url'
+
 const getTokenFromLocalStorage = localStorage.getItem("user") ? 
     JSON.parse(localStorage.getItem("user")) : null 
 
@@ -20,8 +21,16 @@ const login = async (userData) => {
     return response.data
 }
 
+const getOrders = async () => {
+    console.log(getTokenFromLocalStorage)
+    const response = await axios.get(`${base_url}user/get-orders`)
+
+    return response.data
+}
+
 const authService = { 
-    login
+    login,
+    getOrders
 }
 
 export default authService
