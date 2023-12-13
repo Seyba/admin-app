@@ -9,6 +9,7 @@ export const Orders = () => {
     useEffect(() => {
         dispatch(getOrders())
     }, [])
+    const orderState = useSelector((state) => state.auth.orders)
 
     const columns = [
         {
@@ -16,37 +17,41 @@ export const Orders = () => {
           dataIndex: 'key'
         },
         {
-          title: 'Name',
-          dataIndex: 'name'
+          title: 'Date',
+          dataIndex: 'date'
         },
         {
-          title: 'Product',
-          dataIndex: 'product'
+          title: 'Customer',
+          dataIndex: 'customer'
+        },
+        {
+            title: 'Product',
+            dataIndex: 'product'
+        },
+        {
+            title: 'Mobile',
+            dataIndex: 'mobile'
+        },
+        {
+            title: 'Amount',
+            dataIndex: 'amount'
         },
         {
             title: 'Status',
             dataIndex: 'status'
         },
-        {
-            title: 'Date',
-            dataIndex: 'date'
-        },
-        {
-            title: 'Total',
-            dataIndex: 'total'
-        },
     ];
 
-    const orderState = useSelector((state) => state.auth.orders)
     const data = []
     for(let i = 0; i < orderState.length; i++) {
         data.push({
-            key: i,
-            name: `Edward King ${i}`,
-            product: 32,
-            status: `London, Park Lane no. ${i}`,
-            date: new Date().getFullYear(),
-            total: 349
+            key: orderState[i]._id,
+            date: orderState[i].createdAt,
+            customer: `${orderState[i].orderBy.firstname} ${orderState[i].orderBy.lastname}`,
+            product: orderState[i].products.map((prod) => <ul><li>{prod.product.title}</li></ul>),
+            mobile: orderState[i].orderBy.mobile,
+            amount: orderState[i].paymentIntent.amount,
+            status: orderState[i].orderStatus
         })
     }
 

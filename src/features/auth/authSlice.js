@@ -29,7 +29,7 @@ export const login = createAsyncThunk('auth/admin-login', async (user, thunkApi)
     }
 })
 
-export const getOrders = createAsyncThunk('order/get-orders', async (thunkApi) => {
+export const getOrders = createAsyncThunk('user/get-allOrders', async (thunkApi) => {
     try {
         return  await authService.getOrders()
     } catch (error) {

@@ -22,8 +22,7 @@ const login = async (userData) => {
 }
 
 const getOrders = async () => {
-    console.log(getTokenFromLocalStorage)
-    const response = await axios.get(`${base_url}user/get-orders`, config)
+    const response = await axios.get(`${base_url}user/get-allOrders`, config)
 
     return response.data
 }
