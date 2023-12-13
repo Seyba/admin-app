@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Table } from 'antd'
 import { useSelector, useDispatch } from 'react-redux';
 import { getOrders } from '../../features/auth/authSlice';
+import moment from 'moment'
 
 export const Orders = () => {
     const dispatch = useDispatch()
@@ -41,14 +42,14 @@ export const Orders = () => {
             dataIndex: 'status'
         },
     ];
-
+    console.log(moment().format("MMM Do YY"))
     const data = []
     for(let i = 0; i < orderState.length; i++) {
         data.push({
             key: orderState[i]._id,
-            date: orderState[i].createdAt,
+            date:  moment(orderState[i].createdAt).format("MMMM Do YYYY"),//orderState[i].createdAt.slice(0, 16).replace('T', ' '),
             customer: `${orderState[i].orderBy.firstname} ${orderState[i].orderBy.lastname}`,
-            product: orderState[i].products.map((prod) => <ul><li>{prod.product.title}</li></ul>),
+            product: orderState[i].products.map((prod, j) => <ul key={j}><li>{prod.product.title}</li></ul>),
             mobile: orderState[i].orderBy.mobile,
             amount: orderState[i].paymentIntent.amount,
             status: orderState[i].orderStatus
