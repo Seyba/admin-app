@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Table } from 'antd'
 import { useSelector, useDispatch } from 'react-redux';
-import { getOrders } from '../../features/orders/orderSlice';
+import { getOrders } from '../../features/auth/authSlice';
 
 export const Orders = () => {
     const dispatch = useDispatch()

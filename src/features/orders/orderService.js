@@ -1,14 +1,14 @@
-import axios from 'axios'
-import { base_url } from '../../utils/base_url'
+// import axios from 'axios'
+// import { base_url } from '../../utils/base_url'
 
-const getOrders = async () => {
-    const response = await axios.get(`${base_url}get-orders`)
+// const getOrders = async () => {
+//     const response = await axios.get(`${base_url}user/get-orders`)
     
-    return response.data
-}
+//     return response.data
+// }
 
-const orderService = { 
-    getOrders
-}
+// const orderService = { 
+//     getOrders
+// }
 
-export default orderService
+// export default orderService
