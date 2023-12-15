@@ -43,7 +43,8 @@ let schema = yup.object().shape({
   price: yup.number().required('Price is required'),
   brand: yup.string().required('Brand is required'),
   category: yup.string().required('Category is required'),
-  color: yup.array().required('Colors are required')
+  color: yup.array().required('Colors are required'),
+  quantity: yup.number().required('quantity is required')
 })
 
 export const AddProduct = () => {
@@ -148,7 +149,7 @@ export const AddProduct = () => {
             }
           </div>
           <select
-            className="form-control py-3" 
+            className="form-control py-3 mb-3" 
             id="" 
             name="category"
             onChg={formik.handleChange('category')}
@@ -176,6 +177,20 @@ export const AddProduct = () => {
           <div className="error mb-3">
             {
               formik.touched.color && formik.errors.color
+            }
+          </div>
+
+          <CustomInput
+            type="text"
+            label="Enter product quantity"
+            onChg={formik.handleChange('quantity')}
+            onBlr={formik.handleBlur('quantity')}
+            val={formik.values.quantity}
+            name="quantity"
+          />
+          <div className="error mb-3">
+            {
+              formik.touched.quantity && formik.errors.quantity
             }
           </div>
           <button 
