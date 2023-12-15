@@ -42,7 +42,7 @@ export const Orders = () => {
             dataIndex: 'status'
         },
     ];
-    console.log(moment().format("MMM Do YY"))
+
     const data = []
     for(let i = 0; i < orderState.length; i++) {
         data.push({
