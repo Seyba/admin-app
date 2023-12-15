@@ -40,17 +40,21 @@ const props = {
 let schema = yup.object().shape({
   title: yup.string().required('Title is required'),
   description: yup.string().required('Description is required'),
-  price: yup.number().required('Price is required')
+  price: yup.number().required('Price is required'),
+  brand: yup.string().required('Brand is required'),
+  category: yup.string().required('Category is required'),
+  color: yup.array().required('Colors are required')
 })
 
 export const AddProduct = () => {
   const dispatch = useDispatch()
-  const [brand, setBrand ] = useState([])
+  const [color, setColor ] = useState([])
 
   useEffect(() => {
     dispatch(getBrands())
     dispatch(getProdCats())
     dispatch(getColors())
+    formik.values.color = color
   },[])
   
   const brandState = useSelector((state) => state.brands.brands)
@@ -69,15 +73,17 @@ export const AddProduct = () => {
     initialValues: {
       title: '',
       description:'',
-      price: ''
+      price: '',
+      brand: '',
+      category: '',
+      color: '',
+      quantity: ''
     },
     validationSchema: schema,
     onSubmit: (values) => {
       alert(JSON.stringify(values))
     }
   })
-
-  
 
   return (
     <div>
@@ -103,7 +109,6 @@ export const AddProduct = () => {
               name="description"
               value={formik.values.description} 
               onChange={formik.handleChange('description')}
-              onBlur={formik.handleBlur('description')}
             />
           </div>
           <div className="error">
@@ -124,40 +129,60 @@ export const AddProduct = () => {
               formik.touched.price && formik.errors.price
             }
           </div>
-          <select className="form-control py-3 mb-3" name="" id="" >
+          <select
+            className="form-control py-3 mb-3" 
+            id="" 
+            name="brand"
+            onChg={formik.handleChange('brand')}
+            onBlr={formik.handleBlur('brand')}
+            val={formik.values.brand} 
+          >
             <option>Select Brand</option>
             {brandState.map((brd, i) => 
               <option value={brd.name} key={i}>{brd.name}</option>
             )}
           </select>
-          <select className="form-control py-3 mb-3" name="" id="" >
+          <div className="error mb-3">
+            {
+              formik.touched.brand && formik.errors.brand
+            }
+          </div>
+          <select
+            className="form-control py-3" 
+            id="" 
+            name="category"
+            onChg={formik.handleChange('category')}
+            onBlr={formik.handleBlur('category')}
+            val={formik.values.category} 
+          >
             <option>Select Category</option>
             {catState.map((cat, i) => 
-              <option value={cat.title} key={i}>{cat.title}</option>
+              <option value={cat.title} selected key={i}>{cat.title}</option>
             )}
           </select>
-          
+          <div className="error">
+            {
+              formik.touched.category && formik.errors.category
+            }
+          </div>
           <Multiselect
+            name="color"
+            onChange={(e) => setColor()}
             dataKey="id"
             textField="color"
-            defaultValue={[1]}
             data={colorData}
-          />;
-          <Dragger {...props}>
-              <p className="ant-upload-drag-icon">
-                <InboxOutlined />
-              </p>
-              <p className="ant-upload-text">Click or drag product image to this area to upload</p>
-              <p className="ant-upload-hint">
-                Support for a single or bulk upload. Strictly prohibited from uploading company data or other
-                banned files.
-              </p>
-          </Dragger>
+            
+          />
+          <div className="error mb-3">
+            {
+              formik.touched.color && formik.errors.color
+            }
+          </div>
           <button 
-              type="submit" 
-              className="btn btn-success border-0 rounded-3 my-5"
+            type="submit" 
+            className="btn btn-success border-0 rounded-3 my-5"
           >
-              Add Product
+            Add Product
           </button>
 
         </form>
