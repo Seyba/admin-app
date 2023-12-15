@@ -11,6 +11,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getBrands } from '../../features/brand/brandSlice';
 import { getProdCats } from '../../features/categories/prodCatSlice';
 import { getColors } from '../../features/color/colorSlice';
+import { Multiselect } from 'react-widgets';
+import "react-widgets/styles.css";
+
 
 const { Dragger } = Upload
 
@@ -53,6 +56,14 @@ export const AddProduct = () => {
   const brandState = useSelector((state) => state.brands.brands)
   const colorState = useSelector((state) => state.colors.colors)
   const catState = useSelector((state) => state.prodCategories.prodCategories)
+  
+  const colorData = []
+  colorState.forEach(cl => {
+    colorData.push({
+      id: cl._id,
+      color: cl.title
+    })
+  })
 
   const formik = useFormik({
     initialValues: {
@@ -125,12 +136,13 @@ export const AddProduct = () => {
               <option value={cat.title} key={i}>{cat.title}</option>
             )}
           </select>
-          <select className="form-control py-3 mb-3" name="" id="" >
-              <option>Select Color</option>
-              {colorState.map((clr, i) => 
-              <option value={clr.name} key={i}>{clr.title}</option>
-            )}
-          </select>
+          
+          <Multiselect
+            dataKey="id"
+            textField="color"
+            defaultValue={[1]}
+            data={colorData}
+          />;
           <Dragger {...props}>
               <p className="ant-upload-drag-icon">
                 <InboxOutlined />
