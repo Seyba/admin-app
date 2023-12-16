@@ -194,8 +194,7 @@ export const AddProduct = () => {
               formik.touched.quantity && formik.errors.quantity
             }
           </div>
-          <div>
-
+          <div className="bg-white text-center border-1 p-5">
             <Dropzone onDrop={acceptedFiles => console.log(acceptedFiles)}>
               {({getRootProps, getInputProps}) => (
                 <section>
@@ -206,7 +205,6 @@ export const AddProduct = () => {
                 </section>
               )}
             </Dropzone>
-
           </div>
           <button 
             type="submit" 
