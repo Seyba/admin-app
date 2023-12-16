@@ -13,6 +13,7 @@ import { getProdCats } from '../../features/categories/prodCatSlice';
 import { getColors } from '../../features/color/colorSlice';
 import { Multiselect } from 'react-widgets';
 import "react-widgets/styles.css";
+import Dropzone from 'react-dropzone'
 
 
 const { Dragger } = Upload
@@ -134,8 +135,8 @@ export const AddProduct = () => {
             className="form-control py-3 mb-3" 
             id="" 
             name="brand"
-            onChg={formik.handleChange('brand')}
-            onBlr={formik.handleBlur('brand')}
+            onSelect={formik.handleChange('brand')}
+            onBlur={formik.handleBlur('brand')}
             val={formik.values.brand} 
           >
             <option>Select Brand</option>
@@ -152,8 +153,8 @@ export const AddProduct = () => {
             className="form-control py-3 mb-3" 
             id="" 
             name="category"
-            onChg={formik.handleChange('category')}
-            onBlr={formik.handleBlur('category')}
+            onSelect={formik.handleChange('category')}
+            onBlur={formik.handleBlur('category')}
             val={formik.values.category} 
           >
             <option>Select Category</option>
@@ -168,7 +169,7 @@ export const AddProduct = () => {
           </div>
           <Multiselect
             name="color"
-            onChange={(e) => setColor()}
+            onSelect={(e) => setColor()}
             dataKey="id"
             textField="color"
             data={colorData}
@@ -192,6 +193,20 @@ export const AddProduct = () => {
             {
               formik.touched.quantity && formik.errors.quantity
             }
+          </div>
+          <div>
+
+            <Dropzone onDrop={acceptedFiles => console.log(acceptedFiles)}>
+              {({getRootProps, getInputProps}) => (
+                <section>
+                  <div {...getRootProps()}>
+                    <input {...getInputProps()} />
+                    <p>Drag 'n' drop some files here, or click to select files</p>
+                  </div>
+                </section>
+              )}
+            </Dropzone>
+
           </div>
           <button 
             type="submit" 
