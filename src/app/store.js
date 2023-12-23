@@ -21,6 +21,6 @@ export const store = configureStore({
         blogCategories: blogCatReducer,
         blogs: blogReducer,
         enquiries: enquiryReducer,
-        images: uploadReducer
+        upload: uploadReducer
     }
 })
