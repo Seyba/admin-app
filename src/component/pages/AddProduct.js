@@ -208,12 +208,12 @@ export const AddProduct = () => {
               )}
             </Dropzone>
           </div>
-          <div className="showImages">
+          <div className="showImages mt-3">
             {
               imgState.map((i, j) => {
                 return(
                   <div key={j}>
-                    <img src={i.url} alt="product"/>
+                    <img src={i.url} alt="product" width={200} height={200}/>
                   </div>
                 )
               })
