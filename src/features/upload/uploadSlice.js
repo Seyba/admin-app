@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import uploadService from "./uploadService"
 
 
-export const uploadImg = createAsyncThunk('upload/images', async (data, thunkApi) => {
+export const uploadImg = createAsyncThunk('upload', async (data, thunkApi) => {
     try {
         const formData = new FormData()
         for(let i = 0; i < data.length; i++ ){

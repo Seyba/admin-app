@@ -14,6 +14,7 @@ import { getColors } from '../../features/color/colorSlice';
 import { Multiselect } from 'react-widgets';
 import "react-widgets/styles.css";
 import Dropzone from 'react-dropzone'
+import { uploadImg } from '../../features/upload/uploadSlice';
 
 
 const { Dragger } = Upload
@@ -62,6 +63,7 @@ export const AddProduct = () => {
   const brandState = useSelector((state) => state.brands.brands)
   const colorState = useSelector((state) => state.colors.colors)
   const catState = useSelector((state) => state.prodCategories.prodCategories)
+  const imgState = useSelector((state) => state.upload.images)
   
   const colorData = []
   colorState.forEach(cl => {
@@ -195,7 +197,7 @@ export const AddProduct = () => {
             }
           </div>
           <div className="bg-white text-center border-1 p-5">
-            <Dropzone onDrop={acceptedFiles => console.log(acceptedFiles)}>
+            <Dropzone onDrop={acceptedFiles => dispatch(uploadImg(acceptedFiles))}>
               {({getRootProps, getInputProps}) => (
                 <section>
                   <div {...getRootProps()}>
@@ -205,6 +207,17 @@ export const AddProduct = () => {
                 </section>
               )}
             </Dropzone>
+          </div>
+          <div className="showImages">
+            {
+              imgState.map((i, j) => {
+                return(
+                  <div key={j}>
+                    <img src={i.url} alt="product"/>
+                  </div>
+                )
+              })
+            }              
           </div>
           <button 
             type="submit" 
