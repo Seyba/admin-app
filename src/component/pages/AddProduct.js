@@ -161,7 +161,7 @@ export const AddProduct = () => {
           >
             <option>Select Category</option>
             {catState.map((cat, i) => 
-              <option value={cat.title} selected key={i}>{cat.title}</option>
+              <option value={cat.title} key={i}>{cat.title}</option>
             )}
           </select>
           <div className="error">
