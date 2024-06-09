@@ -35,8 +35,8 @@ export const ColorList = () => {
     },[])
 
     const colorState = useSelector((state) => state.colors.colors)
-
     const data = []
+    
     for(let i = 0; i < colorState.length; i++) {
         data.push({
             key: colorState[i]._id,

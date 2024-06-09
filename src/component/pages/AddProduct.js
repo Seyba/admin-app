@@ -52,18 +52,25 @@ let schema = yup.object().shape({
 export const AddProduct = () => {
   const dispatch = useDispatch()
   const [color, setColor ] = useState([])
+  const [images, setImages] = useState([])
 
   useEffect(() => {
     dispatch(getBrands())
     dispatch(getProdCats())
     dispatch(getColors())
-    formik.values.color = color
+    
   },[])
+  
   
   const brandState = useSelector((state) => state.brands.brands)
   const colorState = useSelector((state) => state.colors.colors)
   const catState = useSelector((state) => state.prodCategories.prodCategories)
   const imgState = useSelector((state) => state.upload.images)
+
+  useEffect(() => {
+    formik.values.color = color
+    formik.values.images = images
+  },[])
   
   const colorData = []
   colorState.forEach(cl => {
@@ -81,7 +88,8 @@ export const AddProduct = () => {
       brand: '',
       category: '',
       color: '',
-      quantity: ''
+      quantity: '',
+      images:''
     },
     validationSchema: schema,
     onSubmit: (values) => {
